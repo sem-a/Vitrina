@@ -28,7 +28,7 @@ function addToBasket(productId) {
         }
     }
     if(order.lenght == 0) {
-        order.push(productTemp);
+        order = [productTemp];
     } else {
         for (let i = 0; i < order.length; i++) {
             if(order[i].id == productTemp.id) {
@@ -36,7 +36,7 @@ function addToBasket(productId) {
                 return;
             }
         }
-        order.push(productTemp);
+        order = [...order, productTemp];
     }
     // Эти строчки не трогаем, они отвечают за переотрисовку страницы
     renderCart();
